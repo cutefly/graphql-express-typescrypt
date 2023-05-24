@@ -1,4 +1,4 @@
-const { buildSchema } = require('graphql');
+import { buildSchema } from 'graphql';
 
 const schema = buildSchema(`
     type Query {
@@ -11,7 +11,7 @@ const schema = buildSchema(`
         deleteBook(id: ID!): BookResponse
     }
     type Book {
-        id: ID!
+        _id: ID!
         title: String!
         author: String!
         description: String!
@@ -26,4 +26,4 @@ const schema = buildSchema(`
     }
 `);
 
-module.exports = schema;
+export default schema;

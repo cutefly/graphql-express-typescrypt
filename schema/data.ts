@@ -1,4 +1,4 @@
-module.exports = [
+export default [
     {
         id: "1",
         title: "Building Data-Intensive Applications",
