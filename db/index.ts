@@ -1,4 +1,4 @@
-import db  from './connect'
+import conn  from './connect'
 import BookModel  from './books'
 import {
     getAllBooks,
@@ -9,7 +9,7 @@ import {
 } from './dbUtils';
 
 export default {
-    db,
+    conn,
     BookModel,
     books: {
         getBookById,

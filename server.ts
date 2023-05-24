@@ -29,12 +29,12 @@ const httpServer = async () => {
 }
 
 
-db.db.once('open', async () => {
+db.conn.once('open', async () => {
     console.log('Connected to MongoDB');
     await httpServer();
 });
 
-db.db.on('error', async (err: Error) => {
+db.conn.on('error', async (err: Error) => {
     console.log('Error connecting to MongoDB', err.message);
     process.exit(1);
 });
