@@ -6,6 +6,7 @@ import { graphqlHTTP } from 'express-graphql'
 import { schema, resolver } from './schema'
 import envs from './envs'
 import db from './db'
+import kafka from './kafka'
 
 const forks = new Set<Worker>()
 
@@ -60,6 +61,23 @@ const startServer = async () => {
             };
         },
     }));
+    
+    // app.use('/api', require('./router'));
+
+    let respond: string;
+    app.use('/kafka/:event', function (req, res, next) {
+        respond = 'message head';
+        next();
+    }, function (req, res) {
+        respond += ` and message tail(event : ${req.params.event})`;
+        kafka.producer.send({
+            topic: 'quickstart',
+            messages: [
+                { value: respond }
+            ]
+        })
+        res.send(respond)
+    })
 
     return app.listen(envs.port, () => {
         console.log(`Server is running on port ${envs.port}`);
