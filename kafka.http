@@ -1,0 +1,13 @@
+GET http://localhost:3000/api/kafka/quickstart/2 HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/kafka/quickstart/ HTTP/1.1
+content-type: application/json
+
+{
+  "type": "palrago",
+  "key": "20230303225900",
+  "action": "UPDATE",
+  "message": "장터거래 등록(node-app)"
+}

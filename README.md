@@ -2,6 +2,11 @@
 
 > <https://www.section.io/engineering-education/how-to-build-graphql-apis-with-expressjs-and-typescript/>
 
+```text
+# 기타 참고 URL
+https://woojin.tistory.com/25
+```
+
 ## start mongodb
 
 ```sh
